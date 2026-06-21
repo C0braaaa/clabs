@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  /* Font Families */
+  --font-display: var(--font-inter), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  /* Theme Colors - Light Mode (Default) */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-ui: #e2e8f0;
+  
+  --brand: #0284c7;
+  --brand-hover: #0369a1;
+  --accent: #10b981;
+  --secondary: #ea580c;
+  
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --glow-color: rgba(2, 132, 199, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    /* Theme Colors - Dark Mode */
+    --bg-page: #090c15;
+    --bg-card: #111625;
+    --bg-card-hover: #1b233a;
+    --border-ui: #1e293b;
+    
+    --brand: #38bdf8;
+    --brand-hover: #7dd3fc;
+    --accent: #34d399;
+    --secondary: #fb923c;
+    
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --glow-color: rgba(56, 189, 248, 0.15);
+  }
+}
+
+:root.dark {
+  /* Theme Colors - Dark Mode Override */
+  --bg-page: #090c15;
+  --bg-card: #111625;
+  --bg-card-hover: #1b233a;
+  --border-ui: #1e293b;
+  
+  --brand: #38bdf8;
+  --brand-hover: #7dd3fc;
+  --accent: #34d399;
+  --secondary: #fb923c;
+  
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --glow-color: rgba(56, 189, 248, 0.15);
+}
+
+:root.light {
+  /* Theme Colors - Light Mode Override */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-ui: #e2e8f0;
+  
+  --brand: #0284c7;
+  --brand-hover: #0369a1;
+  --accent: #10b981;
+  --secondary: #ea580c;
+  
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --glow-color: rgba(2, 132, 199, 0.1);
+}
+
+
+@theme {
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-border-ui: var(--border-ui);
+  
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-glow-color: var(--glow-color);
+  
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+/* Custom base resets and utilities */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Custom Grid Texture Background */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+}
+
+/* Neon Glow Effect */
+.card-glow:hover {
+  box-shadow: 0 10px 30px -10px var(--glow-color), 
+              0 1px 1px 0 var(--brand) inset;
+}
+
